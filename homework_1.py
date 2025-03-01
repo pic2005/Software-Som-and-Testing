@@ -13,6 +13,14 @@ def run_test_cases():
         ("abc", "Funny"),  # แก้ไขจาก "Not Funny" เป็น "Funny"
         ("a", "Funny"),
         ("", "Funny"),
+        ("xyz", "Not Funny"),  
+        ("xyzyx", "Funny"),  
+        ("12321", "Funny"),  
+        ("12345", "Not Funny"),  
+        ("!@#$%", "Not Funny"),  
+        ("!@#@!", "Funny"),  
+        ("abcddcba", "Funny"),  
+        ("abcdedcbaa", "Not Funny"),  
     ]
 
     # รัน test cases
