@@ -1,13 +1,13 @@
 def caesarCipher(s, k):
     encrypted_text = ""
-    k = k % 26  # Prevent rotation beyond 26 letters
+    k = k % 26  
     
     for char in s:
-        if char.isalpha():  # Check if character is a letter
+        if char.isalpha():  
             shift = ord('A') if char.isupper() else ord('a')
             encrypted_text += chr((ord(char) - shift + k) % 26 + shift)
         else:
-            encrypted_text += char  # Keep non-letter characters unchanged
+            encrypted_text += char 
     
     return encrypted_text
 
@@ -24,7 +24,11 @@ test_cases = [
     ("aBcD", 27),  # Expected: "bCdE" (k=27 is equivalent to k=1)
     ("!@#$%", 10),  # Expected: "!@#$%" (no change)
     ("", 5),  # Expected: "" (empty string)
-]
+    ("som", 3),           # Expected: "vrp"
+    ("songtis", 5),       # Expected: "xtslynx"
+    ("6710110289", 10),   # Expected: "6710110289" (no change)
+    ("LOve", 2),          # Expected: "NQxg"
+]   
 
 # Run test cases
 for i, (s, k) in enumerate(test_cases):
