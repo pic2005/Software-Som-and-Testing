@@ -1,9 +1,6 @@
 def is_funny(s):
-    # Calculate the absolute differences between consecutive characters
     s_diff = [abs(ord(s[i]) - ord(s[i - 1])) for i in range(1, len(s))]
-    # Reverse the differences list
     r_diff = s_diff[::-1]
-    # Check if the differences list is equal to its reverse
     return "Funny" if s_diff == r_diff else "Not Funny"
 
 # Test cases
@@ -18,6 +15,10 @@ test_cases = [
     "abcdefgfedcba",  # Funny
     "a b c",          # Not Funny
     "!@#$%^&*()",     # Not Funny
+    "som",            # Not Funny
+    "susi",           # Not Funny
+    "12705",          # Not Funny
+    "aie",            # Not Funny
 ]
 
 # Run test cases and count results
