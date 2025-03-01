@@ -16,6 +16,7 @@ test_cases = [
     (["a"], "YES"),
     (["zyx", "wvu", "tsr"], "NO"),
     (["abcd", "efgh", "ijkl", "mnop"], "YES"),
+    (["aaaa", "aaaa", "aaaa"], "YES")
 ]
 
 # Run test cases
