@@ -9,7 +9,6 @@ def alternate(s):
     unique_chars = set(s)
     max_length = 0
     
-    # Try all possible pairs of characters
     for char1, char2 in itertools.combinations(unique_chars, 2):
         filtered_s = [c for c in s if c in (char1, char2)]
         if is_alternating(filtered_s):
@@ -29,7 +28,11 @@ test_cases = [
     "121212",      # Expected: 6
     "1221",        # Expected: 2
     "xyzxyz",      # Expected: 6
-    "abababababababababababababababababababababababababababababababab",  # Expected: 56
+    "som",         # Expected: 2
+    "741085296385296",  # Expected: 4
+    "pichaya",     # Expected: 3
+    "eiei",        # Expected: 4
+    "6710110",     # Expected: 2
 ]
 
 # Run test cases
