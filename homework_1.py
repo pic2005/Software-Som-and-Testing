@@ -1,36 +1,43 @@
 def is_funny(s):
+    # Calculate the absolute differences between consecutive characters
     s_diff = [abs(ord(s[i]) - ord(s[i - 1])) for i in range(1, len(s))]
-    r_diff = s_diff[::-1]  # Reverse the ASCII difference list
+    # Reverse the differences list
+    r_diff = s_diff[::-1]
+    # Check if the differences list is equal to its reverse
     return "Funny" if s_diff == r_diff else "Not Funny"
 
-def run_test_cases():
-    # กำหนด test cases
-    test_cases = [
-        ("acxz", "Funny"),
-        ("bcxz", "Not Funny"),
-        ("aaaa", "Funny"),
-        ("ab", "Funny"),
-        ("abc", "Funny"),  # แก้ไขจาก "Not Funny" เป็น "Funny"
-        ("a", "Funny"),
-        ("", "Funny"),
-        ("xyz", "Not Funny"),  
-        ("xyzyx", "Funny"),  
-        ("12321", "Funny"),  
-        ("12345", "Not Funny"),  
-        ("!@#$%", "Not Funny"),  
-        ("!@#@!", "Funny"),  
-        ("abcddcba", "Funny"),  
-        ("abcdedcbaa", "Not Funny"),  
-    ]
+# Test cases
+test_cases = [
+    "abcba",          # Funny
+    "abz",            # Not Funny
+    "",               # Funny (empty string)
+    "a",              # Funny (single character)
+    "๑๒๓",            # Funny (Thai numerals)
+    "a1B2",           # Not Funny
+    "madam",          # Funny
+    "abcdefgfedcba",  # Funny
+    "a b c",          # Not Funny
+    "!@#$%^&*()",     # Not Funny
+]
 
-    # รัน test cases
-    for i, (input_str, expected_output) in enumerate(test_cases):
-        result = is_funny(input_str)
-        print(f"Test Case {i + 1}: {input_str} -> {result} (Expected: {expected_output})")
-        if result == expected_output:
-            print("Passed")
-        else:
-            print("Failed")
+# Run test cases and count results
+funny_count = 0
+not_funny_count = 0
 
-if __name__ == '__main__':
-    run_test_cases()
+for test in test_cases:
+    result = is_funny(test)
+    print(f'Input: "{test}" -> Output: {result}')
+    if result == "Funny":
+        funny_count += 1
+    else:
+        not_funny_count += 1
+
+# Calculate percentages
+total_cases = len(test_cases)
+funny_percentage = (funny_count / total_cases) * 100
+not_funny_percentage = (not_funny_count / total_cases) * 100
+
+# Display percentages
+print("\nResults Summary:")
+print(f'Funny: {funny_percentage:.2f}%')
+print(f'Not Funny: {not_funny_percentage:.2f}%')
